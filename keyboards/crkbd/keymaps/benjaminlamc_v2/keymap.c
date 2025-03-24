@@ -35,7 +35,7 @@ XXXXXXX, LCTL_T(KC_A), LALT_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F), KC_G,    KC_H, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                    XXXXXXX,   LT(_SYM, KC_SPC),  LT(_NAV, KC_TAB),     LT(_FUN, KC_ENT),   LT(_NUM, KC_BSPC), XXXXXXX
+                    XXXXXXX,   LT(_SYM, KC_SPC),  LT(_NAV, KC_ESC),     LT(_FUN, KC_ENT),   LT(_NUM, KC_BSPC), XXXXXXX
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -46,21 +46,20 @@ XXXXXXX, LCTL_T(KC_A), LALT_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F), KC_G,    KC_H, 
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, KC_LCTL, KC_LALT, KC_LGUI, KC_LSFT, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, KC_MPLY, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_PGDN, KC_PGUP, XXXXXXX, KC_CAPS, XXXXXXX,
+      XXXXXXX, XXXXXXX, XXXXXXX, KC_BRID, KC_BRIU, XXXXXXX,                      RCS(KC_TAB), KC_PGDN, KC_PGUP, C(KC_TAB), XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                        XXXXXXX, XXXXXXX,  _______,     KC_ENT,   KC_BSPC, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
-  [_NUM] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      XXXXXXX, KC_ASTR,   KC_7, KC_8,  KC_9, KC_PPLS,                           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  [_NUM] =  LAYOUT_split_3x6_3( //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+      XXXXXXX, XXXXXXX,   KC_7, KC_8,  KC_9, XXXXXXX,                           XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_CIRC, KC_4, KC_5, KC_6, KC_EQL,                              XXXXXXX, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL, XXXXXXX,
+      XXXXXXX, XXXXXXX, KC_4, KC_5, KC_6, XXXXXXX,                              XXXXXXX, KC_RSFT, KC_RGUI, KC_RALT, KC_RCTL, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_SLSH,KC_1, KC_2, KC_3, KC_MINS,                              XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      XXXXXXX, XXXXXXX,KC_1, KC_2, KC_3, XXXXXXX,                              XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX,   KC_ESC,  KC_0,     XXXXXXX, _______, XXXXXXX
+                                          XXXXXXX,   KC_TAB,  KC_0,     XXXXXXX, _______, XXXXXXX
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -68,9 +67,9 @@ XXXXXXX, LCTL_T(KC_A), LALT_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F), KC_G,    KC_H, 
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         XXXXXXX, KC_QUOT, KC_LABK, KC_RABK, KC_DQUO, KC_DOT,                      KC_AMPR, KC_SCLN, KC_LBRC, KC_RBRC, KC_PERC, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-XXXXXXX, LCTL_T(KC_EXLM), LALT_T(KC_MINS), LGUI_T(KC_PLUS), LSFT_T(KC_EQL), KC_HASH,    KC_PIPE, RSFT_T(KC_COLN), RGUI_T(KC_LPRN), RALT_T(KC_RPRN), RCTL_T(KC_QUES), XXXXXXX,
+XXXXXXX, LCTL_T(KC_EXLM), LALT_T(KC_MINS), LGUI_T(KC_PLUS), LSFT_T(KC_EQL), KC_CIRC,    KC_DLR, RSFT_T(KC_COLN), RGUI_T(KC_LPRN), RALT_T(KC_RPRN), RCTL_T(KC_QUES), XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_CIRC, KC_SLSH, KC_ASTR, KC_BSLS, KC_UNDS,                      KC_TILD, KC_DLR, KC_LCBR, KC_RCBR, KC_AT, XXXXXXX,
+      XXXXXXX, KC_TILD, KC_SLSH, KC_ASTR, KC_BSLS, KC_PIPE,                      KC_HASH, KC_UNDS, KC_LCBR, KC_RCBR, KC_AT, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          XXXXXXX, _______,  XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -97,6 +96,11 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
                        '*', '*', '*',  '*', '*', '*'
     );
+
+const uint16_t PROGMEM caps_combo[] = {RSFT_T(KC_J), RGUI_T(KC_K), RALT_T(KC_L), COMBO_END};
+combo_t key_combos[] = {
+    COMBO(caps_combo, CW_TOGG),
+};
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -155,7 +159,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LSFT_T(KC_F): case RSFT_T(KC_J):
-            return TAPPING_TERM - 100;
+            return 100;
         default:
             return TAPPING_TERM;
     }
