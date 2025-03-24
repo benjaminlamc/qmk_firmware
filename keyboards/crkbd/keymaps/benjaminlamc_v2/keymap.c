@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       XXXXXXX,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-XXXXXXX, LCTL_T(KC_A), LALT_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F), KC_G,    KC_H, RSFT_T(KC_J), RGUI_T(KC_K), RALT_T(KC_L), RCTL_T(KC_QUOT), XXXXXXX,
+XXXXXXX, LCTL_T(KC_A), LALT_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F), KC_G,    KC_H, RSFT_T(KC_J), RGUI_T(KC_K), RALT_T(KC_L), RCTL_T(KC_SCLN), XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -64,12 +64,12 @@ XXXXXXX, LCTL_T(KC_A), LALT_T(KC_S), LGUI_T(KC_D), LSFT_T(KC_F), KC_G,    KC_H, 
   ),
 
   [_SYM] = LAYOUT_split_3x6_3(
-  //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        XXXXXXX, KC_QUOT, KC_LABK, KC_RABK, KC_DQUO, KC_DOT,                      KC_AMPR, KC_SCLN, KC_LBRC, KC_RBRC, KC_PERC, XXXXXXX,
+ //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+        XXXXXXX, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,                     KC_CIRC, KC_AMPR, KC_ASTR, KC_LCBR, KC_RCBR, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-XXXXXXX, LCTL_T(KC_EXLM), LALT_T(KC_MINS), LGUI_T(KC_PLUS), LSFT_T(KC_EQL), KC_CIRC,    KC_DLR, RSFT_T(KC_COLN), RGUI_T(KC_LPRN), RALT_T(KC_RPRN), RCTL_T(KC_QUES), XXXXXXX,
+XXXXXXX, LCTL_T(KC_GRV), LALT_T(KC_TILD), LGUI_T(KC_LT), LSFT_T(KC_GT), XXXXXXX,    KC_MINS, RSFT_T(KC_PLUS), RGUI_T(KC_EQL), RALT_T(KC_LPRN), RCTL_T(KC_RPRN), XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, KC_TILD, KC_SLSH, KC_ASTR, KC_BSLS, KC_PIPE,                      KC_HASH, KC_UNDS, KC_LCBR, KC_RCBR, KC_AT, XXXXXXX,
+      XXXXXXX, KC_BSLS, KC_PIPE, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_UNDS, KC_DQT, KC_QUOT, KC_LBRC, KC_RBRC, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          XXXXXXX, _______,  XXXXXXX,     XXXXXXX, XXXXXXX, XXXXXXX
                                       //`--------------------------'  `--------------------------'
@@ -97,58 +97,61 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
                        '*', '*', '*',  '*', '*', '*'
     );
 
-const uint16_t PROGMEM caps_combo[] = {RSFT_T(KC_J), RGUI_T(KC_K), RALT_T(KC_L), COMBO_END};
+
+const uint16_t PROGMEM caps_combo_lhs[] = {LSFT_T(KC_F), LGUI_T(KC_D), LALT_T(KC_S), COMBO_END};
+const uint16_t PROGMEM caps_combo_rhs[] = {RSFT_T(KC_J), RGUI_T(KC_K), RALT_T(KC_L), COMBO_END};
 combo_t key_combos[] = {
-    COMBO(caps_combo, CW_TOGG),
+    COMBO(caps_combo_lhs, CW_TOGG),
+    COMBO(caps_combo_rhs, CW_TOGG),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LCTL_T(KC_EXLM):
+        case LCTL_T(KC_GRV):
             if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_EXLM);
+                tap_code16(KC_GRV);
                 return false;        // Return false to ignore further processing of key
             }
             break;
-        case LALT_T(KC_MINS):
+        case LALT_T(KC_TILD):
             if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_MINS);
+                tap_code16(KC_TILD);
                 return false;        // Return false to ignore further processing of key
             }
             break;
-        case LGUI_T(KC_PLUS):
+        case LGUI_T(KC_LT):
             if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_PLUS);
+                tap_code16(KC_LT);
                 return false;        // Return false to ignore further processing of key
             }
             break;
-        case LSFT_T(KC_EQL):
+        case LSFT_T(KC_GT):
             if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_EQL);
+                tap_code16(KC_GT);
                 return false;        // Return false to ignore further processing of key
             }
             break;
-        case RCTL_T(KC_QUES):
-            if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_QUES);
-                return false;        // Return false to ignore further processing of key
-            }
-            break;
-        case RALT_T(KC_RPRN):
+        case RCTL_T(KC_RPRN):
             if (record->tap.count && record->event.pressed) {
                 tap_code16(KC_RPRN);
                 return false;        // Return false to ignore further processing of key
             }
             break;
-        case RGUI_T(KC_LPRN):
+        case RALT_T(KC_LPRN):
             if (record->tap.count && record->event.pressed) {
                 tap_code16(KC_LPRN);
                 return false;        // Return false to ignore further processing of key
             }
             break;
-        case RSFT_T(KC_COLN):
+        case RGUI_T(KC_EQL):
             if (record->tap.count && record->event.pressed) {
-                tap_code16(KC_COLN);
+                tap_code16(KC_EQL);
+                return false;        // Return false to ignore further processing of key
+            }
+            break;
+        case RSFT_T(KC_PLUS):
+            if (record->tap.count && record->event.pressed) {
+                tap_code16(KC_PLUS);
                 return false;        // Return false to ignore further processing of key
             }
             break;
